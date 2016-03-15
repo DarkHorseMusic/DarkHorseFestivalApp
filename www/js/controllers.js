@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('darkHorse.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -6,9 +6,12 @@ angular.module('starter.controllers', [])
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
   // listen for the $ionicView.enter event:
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+  $scope.$on('$ionicView.enter', function(e) {
+  });
 
+  $scope.isAuthenticated = false;
+  $scope.currentUsername = null;
+  
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -36,21 +39,25 @@ angular.module('starter.controllers', [])
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
     $timeout(function() {
+      $scope.isAuthenticated = true;
+      $scope.currentUsername = $scope.loginData.username;
       $scope.closeLogin();
     }, 1000);
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
+.controller('AccountCtrl', function($scope, $stateParams) {
+  $scope.$on('$ionicView.enter', function(e) {
+    if (!e.targetScope.isAuthenticated) {
+      e.targetScope.login();
+    }
+  });
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('MapCtrl', function($scope, $stateParams) {
+  
+})
+
+.controller('EventCtrl', function($scope, $stateParams) {
+  
 });

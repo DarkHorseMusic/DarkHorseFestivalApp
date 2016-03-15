@@ -9730,3 +9730,12 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+.icon.large {
+  font-size: 400%; }
+
+.icon.very-large {
+  font-size: 600%; }
+
+a.no-underline {
+  text-decoration: none; }
