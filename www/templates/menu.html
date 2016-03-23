@@ -18,19 +18,29 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close href="#/app/welcome">
+        <ion-item menu-close href="#/app/welcome"
+            ion-track-tap="{{ANALYTICS_EVENTS.OPEN_WELCOME}}"
+            ion-track-data="{ from: 'Menu', isAuthenticated: isAuthenticated, username: loginData.username }">
           Home
         </ion-item>
-        <ion-item menu-close href="#/app/map">
+        <ion-item menu-close href="#/app/map"
+            ion-track-tap="{{ANALYTICS_EVENTS.OPEN_MAP}}"
+            ion-track-data="{ from: 'Menu', isAuthenticated: isAuthenticated, username: loginData.username }">
           Map
         </ion-item>
-        <ion-item menu-close href="#/app/schedule">
+        <ion-item menu-close href="#/app/schedule"
+            ion-track-tap="{{ANALYTICS_EVENTS.OPEN_SCHEDULE}}"
+            ion-track-data="{ from: 'Menu', isAuthenticated: isAuthenticated, username: loginData.username }">
           Schedule
         </ion-item>
-        <ion-item menu-close href="#/app/onnow">
+        <ion-item menu-close href="#/app/onnow"
+            ion-track-tap="{{ANALYTICS_EVENTS.OPEN_ONNOW}}"
+            ion-track-data="{ from: 'Menu', isAuthenticated: isAuthenticated, username: loginData.username }">
           What's on now
         </ion-item>
-        <ion-item menu-close href="#/app/account">
+        <ion-item menu-close href="#/app/account"
+            ion-track-tap="{{ANALYTICS_EVENTS.OPEN_ACCOUNT}}"
+            ion-track-data="{ from: 'Menu', isAuthenticated: isAuthenticated, username: loginData.username }">
           My account
         </ion-item>
       </ion-list>

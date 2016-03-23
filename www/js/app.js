@@ -1,20 +1,28 @@
+'use strict';
+
 // Dark Horse Festival App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'darkHorse' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'darkHorse.controllers' is found in controllers.js
-angular.module('darkHorse', ['ionic', 'darkHorse.controllers'])
+angular.module('darkHorse', ['ionic', 'ionic.service.core', 'ionic.service.analytics', 'darkHorse.controllers'])
 
-.run(function($ionicPlatform) {
+.run(function($rootScope, $ionicPlatform, $ionicAnalytics, ANALYTICS_EVENTS) {
+  // Making the analytics events constants available to the templates.
+  $rootScope.ANALYTICS_EVENTS = ANALYTICS_EVENTS;
+
   $ionicPlatform.ready(function() {
+    // Registers the app for analytics with the IONIC platform.
+    $ionicAnalytics.register();
+
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
-
     }
+    
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();

@@ -1,6 +1,6 @@
 angular.module('darkHorse.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $ionicAnalytics, ANALYTICS_EVENTS) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -34,11 +34,12 @@ angular.module('darkHorse.controllers', [])
 
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
-
+    $ionicAnalytics.track(ANALYTICS_EVENTS.LOGIN_ATTEMPT, { username: $scope.loginData.username });
+    
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
     $timeout(function() {
+      $ionicAnalytics.track(ANALYTICS_EVENTS.SUCCESSFUL_LOGIN, { username: $scope.loginData.username });
       $scope.isAuthenticated = true;
       $scope.currentUsername = $scope.loginData.username;
       $scope.closeLogin();
