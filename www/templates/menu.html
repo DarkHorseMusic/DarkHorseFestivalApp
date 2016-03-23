@@ -43,6 +43,9 @@
             ion-track-data="{ from: 'Menu', isAuthenticated: isAuthenticated, username: loginData.username }">
           My account
         </ion-item>
+        <ion-item menu-close ng-show="showSignOut" ng-click="doSignOut()">
+            Sign out
+        </ion-item>
       </ion-list>
     </ion-content>
   </ion-side-menu>
