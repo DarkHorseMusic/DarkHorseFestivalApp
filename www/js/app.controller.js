@@ -3,29 +3,50 @@
     
     angular.module('darkHorse.controllers', [])
     .controller('AppCtrl', ['$scope', '$state', '$ionicModal', '$ionicPopup', 'AccountService', 'AUTH_EVENTS', function($scope, $state, $ionicModal, $ionicPopup, AccountService, AUTH_EVENTS) {
-        // Form data for the login modal
+        // Form data for the modals.
         $scope.loginData = {};
+        $scope.signUpData = {};
+
+        // Whether to show the sign out option or not.
         $scope.showSignOut = AccountService.isAuthenticated();
 
-        // Create the login modal that we will use later
+        // Creates the login modal that we will use later.
         $ionicModal.fromTemplateUrl('templates/login.html', {
             scope: $scope
         }).then(function(modal) {
             $scope.loginModal = modal;
         });
 
-        // Triggered in the login modal to close it
+        // Creates the sign up modal that we will use later.
+        $ionicModal.fromTemplateUrl('templates/signup.html', {
+            scope: $scope
+        }).then(function(modal) {
+            $scope.signUpModal = modal;
+        });
+
+        // Triggered in the login modal to close it.
         $scope.closeLoginModal = function() {
             $scope.redirectState = null;
             $scope.loginModal.hide();
         };
 
-        // Open the login modal
+        // Opens the login modal
         function showLoginModal() {
             $scope.loginModal.show();
         };
 
-        // Perform the login action when the user submits the login form
+        $scope.closeSignUpModal = function() {
+            $scope.redirectState = null;
+            $scope.signUpModal.hide();
+        };
+
+        // Opens the sign up modal.
+        $scope.showSignUpModal = function() {
+            $scope.closeLoginModal();
+            $scope.signUpModal.show();
+        };
+
+        // Performs the login action when the user submits the login form.
         $scope.doLogin = function() {
             AccountService.login($scope.loginData.username, $scope.loginData.password)
             .then(function(successData) {
@@ -43,6 +64,7 @@
             });
         };
         
+        // Performs the log out action when the user selects the option to log out.
         $scope.doSignOut = function() {
             AccountService.logout();
             var isAuthenticated = AccountService.isAuthenticated();
@@ -55,6 +77,23 @@
             }
         };
         
+        // Performs the sign up action when the user submits the sign up form.
+        $scope.doSignUp = function() {
+            AccountService.signUp($scope.signUpData)
+                .then(function(msg) {
+                    $state.go('app.account');
+                    $ionicPopup.alert({
+                        title: 'Successful registration',
+                        template: msg
+                    });
+                }, function(errMsg) {
+                    $ionicPopup.alert({
+                        title: 'Registration failed',
+                        template: errMsg
+                    });
+                });
+        };
+
         $scope.$on(AUTH_EVENTS.PRESENT_LOGIN, function(event, toState) {
             $scope.redirectState = toState;
             showLoginModal();
