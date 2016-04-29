@@ -10,7 +10,8 @@
             logout: onLogout,
             isAuthenticated: checkIfAuthenticated,
             currentUserFullName: checkCurrentUserFullName,
-            signUp: onSignUp
+            signUp: onSignUp,
+            requestVerificationEmail: onRequestVerificationEmail
         };
 
         var tokenLocalStorageKey = 'DarkHorseToken';
@@ -68,8 +69,11 @@
                             checkCurrentUserFullName();
                             resolve('Successfully logged in.');
                         } else {
-                            $ionicAnalytics.track(ANALYTICS_EVENTS.FAILED_LOGIN, {});
-                            reject(result.data.msg);
+                            $ionicAnalytics.track(ANALYTICS_EVENTS.FAILED_LOGIN, { 
+                                reason: result.data.msg 
+                            });
+                            
+                            reject({ msg: result.data.msg, emailNotVerified: result.data.emailNotVerified });
                         }
                     });
             });
@@ -146,6 +150,7 @@
                                         fullName: signUpData ? signUpData.fullName : '',
                                         email: signUpData ? signUpData.email : ''
                                     });
+
                                     resolve(result.data.msg);
                                 } else {
                                     $ionicAnalytics.track(ANALYTICS_EVENTS.FAILED_SIGNUP, {
@@ -153,11 +158,38 @@
                                         email: signUpData ? signUpData.email : '',
                                         reason: 'Server error: ' + result.data.msg
                                     });
+
                                     reject(result.data.msg);
                                 }
                             });
                     }
                 }
+            });
+        };
+        
+        function onRequestVerificationEmail(email) {
+            $ionicAnalytics.track(ANALYTICS_EVENTS.RESEND_VERIFICATION_EMAIL, {
+                email: email
+            });
+            
+            return $q(function(resolve, reject) {
+                $http.post(API_ENDPOINT.URL + '/send-verify-email', { email: email })
+                    .then(function(result) {
+                        if (result.data.success) {
+                            $ionicAnalytics.track(ANALYTICS_EVENTS.SUCCESSFUL_RESEND_VERIFICATION_EMAIL, {
+                                email: email
+                            });
+                            
+                            resolve(result.data.msg);
+                        } else {
+                            $ionicAnalytics.track(ANALYTICS_EVENTS.FAILED_RESEND_VERIFICATION_EMAIL, {
+                                email: email,
+                                reason: 'Server error: ' + result.data.msg
+                            });
+                            
+                            reject(result.data.msg);
+                        }
+                    });
             });
         };
 

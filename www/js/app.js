@@ -23,7 +23,7 @@ angular.module('darkHorse', ['ionic', 'ionic.service.core', 'ionic.service.analy
             eventData.isAuthenticated = false;
             eventData.username = null;
         });
-
+        
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard for form inputs)
         if (window.cordova && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);

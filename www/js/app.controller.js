@@ -57,9 +57,35 @@
                     $scope.redirectState = null;
                 }
             }, function(errorData) {
+                var buttons = [{
+                    text: 'Ok',
+                    type: 'button-positive'
+                }];
+                
+                if (errorData.emailNotVerified) {
+                    buttons.push({
+                        text: 'Re-send email',
+                        type: 'button-dark',
+                        onTap: function(e) {
+                            AccountService.requestVerificationEmail($scope.loginData.username).then(function(successMessage){
+                                $ionicPopup.alert({
+                                    title: 'Verification e-mail sent',
+                                    template: successMessage
+                                });
+                            }, function(errorMessage) {
+                                $ionicPopup.alert({
+                                    title: 'Verification e-mail failed',
+                                    template: errorMessage
+                                });
+                            });
+                        }
+                    });
+                }
+
                 $ionicPopup.alert({
                    title: 'Authentication failed',
-                   template: 'Please check your credentials and try again.' 
+                   template: errorData.msg,
+                   buttons: buttons
                 });
             });
         };
