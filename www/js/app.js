@@ -1,7 +1,7 @@
 // Dark Horse Festival App
 'use strict';
 
-angular.module('darkHorse', ['ionic', 'ionic.service.core', 'ionic.service.analytics', 'darkHorse.controllers', 'darkHorse.services'])
+angular.module('darkHorse', ['ionic', 'ionic.service.core', 'ionic.service.analytics', 'ngCordova', 'darkHorse.controllers', 'darkHorse.services'])
 .run(function($rootScope, $state, $ionicPlatform, $ionicAnalytics, AccountService, ANALYTICS_EVENTS, AUTH_EVENTS) {
     // Making the analytics events constants available to the templates.
     $rootScope.ANALYTICS_EVENTS = ANALYTICS_EVENTS;

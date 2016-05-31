@@ -9739,3 +9739,10 @@ a.button {
 
 a.no-underline {
   text-decoration: none; }
+
+.scroll {
+  height: 100%; }
+
+#map {
+  width: 100%;
+  height: 100%; }
