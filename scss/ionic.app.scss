@@ -15,6 +15,20 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
+$light:                           #1d1d1b;
+$dark:                            #fff;
+
+$base-background-color:           #1d1d1b;
+$base-color:                      #fff;
+
+$button-light-text:               #fff;
+$button-light-border:             $light;
+
+$card-body-bg:                    $light;
+$card-box-shadow:                 none;
+
+$menu-bg:                         $light;
+
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
