@@ -75,13 +75,33 @@ angular.module('darkHorse', ['ionic', 'ionic.service.core', 'ionic.service.analy
             }
         }
     })
-    
+
     .state('app.onnow', {
         url: '/onnow',
         views: {
             'menuContent': {
                 templateUrl: 'templates/onnow.html',
                 controller: 'ScheduleCtrl'
+            }
+        }
+    })
+
+    .state('app.findmytent', {
+        url: '/findmytent',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/findmytent.html',
+                controller: 'MapCtrl'
+            }
+        }
+    })
+
+    .state('app.weather', {
+        url: '/weather',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/weather.html',
+                controller: 'WeatherCtrl'
             }
         }
     })
@@ -95,7 +115,27 @@ angular.module('darkHorse', ['ionic', 'ionic.service.core', 'ionic.service.analy
             }
         }
     })
-    
+
+    .state('app.bar', {
+        url: '/bar',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/bar.html',
+                controller: 'MenusCtrl'
+            }
+        }
+    })
+
+    .state('app.food', {
+        url: '/food',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/food.html',
+                controller: 'MenusCtrl'
+            }
+        }
+    })
+
     .state('app.account', {
         url: '/account',
         views: {
