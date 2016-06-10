@@ -20,7 +20,7 @@
         SUCCESSFUL_RESEND_VERIFICATION_EMAIL: 'Successful Re-send Verification E-mail',
         FAILED_RESEND_VERIFICATION_EMAIL: 'Failed Re-send Verification E-mail',
         SUCCESSFUL_UPDATE_USER: 'Successful Update of User Information',
-        FAILED_UPDATE_USER: 'Failed Update of User Information'
+        FAILED_UPDATE_USER: 'Failed Update of User Information',
         OPEN_FINDMYTENT: 'Open Find My Tent',
         TOGGLE_TORCH: 'Toggle Torch',
         OPEN_SNAPCHAT: 'Open Snapchat',
