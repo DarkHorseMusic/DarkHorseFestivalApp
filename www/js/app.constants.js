@@ -28,7 +28,8 @@
         OPEN_WEATHER: 'Open Weather',
         OPEN_BAR: 'Open Bar',
         OPEN_FOOD: 'Open Food',
-        OPEN_FIRSTAID: 'Open First Aid'
+        OPEN_FIRSTAID: 'Open First Aid',
+        GET_FORECAST: 'Get Forecast'
     })
     .constant('AUTH_EVENTS', {
         PRESENT_LOGIN: 'present-login',
@@ -36,7 +37,8 @@
         NOT_AUTHORISED: 'not-authorised'
     })
     .constant('API_ENDPOINT', {
-        URL: 'https://darkhorsemusic.herokuapp.com/api'
-        //URL: 'http://localhost:5000/api'
+        //URL: 'http://localhost:5000/api',
+        URL: 'https://darkhorsemusic.herokuapp.com/api',
+        WEATHER: 'https://api.darksky.net/forecast/5df4f411edeb587da321820132a14055'
     });
 }());

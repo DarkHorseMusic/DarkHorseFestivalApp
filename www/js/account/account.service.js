@@ -195,5 +195,5 @@
 
         loadUserCredentials();
         return api;
-    }
+    };
 }());

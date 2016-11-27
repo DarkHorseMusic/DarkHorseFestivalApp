@@ -1,5 +1,19 @@
 <ion-view view-title="Weather">
   <ion-content>
     <h1>Weather</h1>
+    <ion-card>
+      <ion-item>
+        <h2>Current weather</h2>
+        <p>{{weatherSummary}}</p>
+      </ion-item>
+      <ion-item>
+        <h2>Temperature</h2>
+        <p>{{weatherTemperature}}&deg;C</p>
+      </ion-item>
+      <ion-item>
+        <h2>Wind</h2>
+        <p>{{weatherWindSpeed}} mph</p>
+      </ion-item>
+    </ion-card>
   </ion-content>
 </ion-view>

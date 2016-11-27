@@ -37,7 +37,8 @@ angular.module('darkHorse', ['ionic', 'ionic.service.core', 'ionic.service.analy
     });
 })
 
-.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+.config(function($stateProvider, $urlRouterProvider, $httpProvider, $sceProvider) {
+    $sceProvider.enabled(true);
     $httpProvider.interceptors.push('AuthInterceptor');
     
     $stateProvider.state('app', {
