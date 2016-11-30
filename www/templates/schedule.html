@@ -1,89 +1,55 @@
 <ion-view view-title="Schedule">
   <ion-content>
     <ion-tabs class="">
+      <!-- This should work but it looks like there is a bug with ion-tab + ng-repeat. -->
+      <!--<ion-tab ng-repeat="day in ['Friday', 'Saturday', 'Sunday']" title="{{day}}">
+        <ion-list>
+          <ion-item ng-repeat="schedule in schedules[day]" ng-click="showScheduleOptions(schedule.id);">
+            <ion-avatar item-left>
+              <ion-icon name="{{schedule.icon}}"></ion-icon>
+            </ion-avatar>
+            <h2>{{schedule.name}}</h2>
+            <h3>{{schedule.startTime}} - {{schedule.endTime}} @ {{schedule.location}}</h3>
+            <p>{{schedule.description}}</p>
+          </ion-item>
+        </ion-list>
+      </ion-tab>-->
+
       <ion-tab title="Friday">
         <ion-list>
-          <ion-item>
+          <ion-item ng-repeat="schedule in schedules['Friday']" ng-click="showScheduleOptions(schedule.id);">
             <ion-avatar item-left>
-              <ion-icon name="microphone"></ion-icon>
+              <ion-icon name="{{schedule.icon}}"></ion-icon>
             </ion-avatar>
-            <h2>Music Act 1</h2>
-            <h3>20:00 - 21:00 @ Barn</h3>
-            <p>Indie rock band that plays really well.</p>
-          </ion-item>
-          <ion-item>
-            <ion-avatar item-left>
-              <ion-icon name="musical-notes"></ion-icon>
-            </ion-avatar>
-            <h2>Music Act 2</h2>
-            <h3>20:00 - 21:00 @ Field</h3>
-            <p>Indie rock band that plays so so.</p>
-          </ion-item>
-          <ion-item>
-            <ion-avatar item-left>
-              <ion-icon name="musical-note"></ion-icon>
-            </ion-avatar>
-            <h2>Music Act 3</h2>
-            <h3>20:00 - 21:00 @ Ditch</h3>
-            <p>Indie rock band that really shouldn't call itself a band.</p>
+            <h2>{{schedule.name}}</h2>
+            <h3>{{schedule.startTime}} - {{schedule.endTime}} @ {{schedule.location}}</h3>
+            <p>{{schedule.description}}</p>
           </ion-item>
         </ion-list>
       </ion-tab>
 
       <ion-tab title="Saturday">
         <ion-list>
-          <ion-item>
+          <ion-item ng-repeat="schedule in schedules['Saturday']" ng-click="showScheduleOptions(schedule.id);">
             <ion-avatar item-left>
-              <ion-icon name="bonfire"></ion-icon>
+              <ion-icon name="{{schedule.icon}}"></ion-icon>
             </ion-avatar>
-            <h2>Folk Act 1</h2>
-            <h3>20:00 - 21:00 @ Barn</h3>
-            <p>Folk duo that plays really well.</p>
-          </ion-item>
-          <ion-item>
-            <ion-avatar item-left>
-              <ion-icon name="bug"></ion-icon>
-            </ion-avatar>
-            <h2>Folk Act 2</h2>
-            <h3>20:00 - 21:00 @ Field</h3>
-            <p>Folk trio that plays so so.</p>
-          </ion-item>
-          <ion-item>
-            <ion-avatar item-left>
-              <ion-icon name="cloudy-night"></ion-icon>
-            </ion-avatar>
-            <h2>Folk Act 3</h2>
-            <h3>20:00 - 21:00 @ Ditch</h3>
-            <p>A folk. Don't really play anything.</p>
+            <h2>{{schedule.name}}</h2>
+            <h3>{{schedule.startTime}} - {{schedule.endTime}} @ {{schedule.location}}</h3>
+            <p>{{schedule.description}}</p>
           </ion-item>
         </ion-list>
       </ion-tab>
 
       <ion-tab title="Sunday">
         <ion-list>
-          <ion-item>
+          <ion-item ng-repeat="schedule in schedules['Sunday']" ng-click="showScheduleOptions(schedule.id);">
             <ion-avatar item-left>
-              <ion-icon name="alert"></ion-icon>
+              <ion-icon name="{{schedule.icon}}"></ion-icon>
             </ion-avatar>
-            <h2>Random Act 1</h2>
-            <h3>20:00 - 21:00 @ Barn</h3>
-            <p>We can be stressed about things.</p>
-          </ion-item>
-          <ion-item>
-            <ion-avatar item-left>
-              <ion-icon name="aperture"></ion-icon>
-            </ion-avatar>
-            <h2>Random Act 2</h2>
-            <h3>20:00 - 21:00 @ Field</h3>
-            <p>Ran out of icons to add.</p>
-          </ion-item>
-          <ion-item>
-            <ion-avatar item-left>
-              <ion-icon name="bulb"></ion-icon>
-            </ion-avatar>
-            <h2>Random Act 3</h2>
-            <h3>20:00 - 21:00 @ Ditch</h3>
-            <p>A really good idea.</p>
+            <h2>{{schedule.name}}</h2>
+            <h3>{{schedule.startTime}} - {{schedule.endTime}} @ {{schedule.location}}</h3>
+            <p>{{schedule.description}}</p>
           </ion-item>
         </ion-list>
       </ion-tab>
