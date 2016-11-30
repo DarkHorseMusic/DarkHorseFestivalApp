@@ -33,7 +33,9 @@ $menu-bg:                         $light;
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
-@import "www/lib/ionic/scss/ionic";
+@import 
+"www/lib/ionic/scss/ionic",
+"darkhorse-custom";
 
 .icon {
 	&.large {
