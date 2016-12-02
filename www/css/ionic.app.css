@@ -9731,6 +9731,12 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+/* Dark Horse Custom Styles */
+ion-card img {
+  width: 100%;
+  display: block;
+  padding-bottom: 10px; }
+
 .icon.large {
   font-size: 400%; }
 
