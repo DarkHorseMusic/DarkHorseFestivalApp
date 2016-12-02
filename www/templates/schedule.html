@@ -22,7 +22,7 @@
               <ion-icon name="{{schedule.icon}}"></ion-icon>
             </ion-avatar>
             <ion-card>
-                <img src="/img/bombs.jpg"/>
+                <img ng-src='{{schedule.bandPic}}'/>
                 <ion-card-content>
                   <ion-card-title>{{schedule.name}}</ion-card-title>
                   <h3>{{schedule.startTime}} - {{schedule.endTime}} @ {{schedule.location}}</h3>
@@ -40,14 +40,13 @@
               <ion-icon name="{{schedule.icon}}"></ion-icon>
             </ion-avatar>
             <ion-card>
-                <img src=""/>
+                <img ng-src="{{schedule.bandPic}}"/>
                 <ion-card-content>
                   <ion-card-title>{{schedule.name}}</ion-card-title>
                   <h3>{{schedule.startTime}} - {{schedule.endTime}} @ {{schedule.location}}</h3>
                   <p>{{schedule.description}}</p>
                 </ion-card-content>
               </ion-card>
-          </ion-card>
           </ion-item>
         </ion-list>
       </ion-tab>
@@ -59,14 +58,13 @@
               <ion-icon name="{{schedule.icon}}"></ion-icon>
             </ion-avatar>
             <ion-card>
-                <img src=""/>
+                <img ng-src="{{schedule.bandPic}}"/>
                 <ion-card-content>
                   <ion-card-title>{{schedule.name}}</ion-card-title>
                   <h3>{{schedule.startTime}} - {{schedule.endTime}} @ {{schedule.location}}</h3>
                   <p>{{schedule.description}}</p>
                 </ion-card-content>
               </ion-card>
-          </ion-card>
           </ion-item>
         </ion-list>
       </ion-tab>
